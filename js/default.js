@@ -165,7 +165,7 @@ $(function(){
 		else if (rowAmount == 6 && rowsAmount == 2) { rowMulti = 57.75; }
 		else if (rowAmount == 7 && rowsAmount == 2) { rowMulti = 63.00; }
 		else if (rowAmount == 8 && rowsAmount == 2) { rowMulti = 68.25; }
-		else if (rowAmount == 9 && rowsAmount == 3) { rowMulti = 73.50; }
+		else if (rowAmount == 9 && rowsAmount == 2) { rowMulti = 73.50; }
 		else if (rowAmount == 0 && rowsAmount == 3) { rowMulti = 47.25; }
 		else if (rowAmount == 1 && rowsAmount == 3) { rowMulti = 61.43; }
 		else if (rowAmount == 2 && rowsAmount == 3) { rowMulti = 75.60; }
@@ -179,12 +179,12 @@ $(function(){
 		document.getElementById('row-multiplier').innerHTML = rowMulti;
 	}
 	function twoVsRow() {
-		var row = $("#row-multiplier").text();
-		var two = $("#two-prong-multiplier").text();
+		var row = parseInt($("#row-multiplier").text(), 10);
+		var two = parseInt($("#two-prong-multiplier").text(), 10);
 		if (row > two) { 
 			document.getElementById('choice').innerHTML = "Row";
 		}
-		else if (row < two) { 
+		else if ( row < two ) { 
 			document.getElementById('choice').innerHTML = "Two-Prong Attack";
 		}
 		else if (row == two) {
@@ -195,17 +195,21 @@ $(function(){
 
 	$('#two-prong-slider').on('slide', function(){
 		calcTwo();
+		calcRow();
 		twoVsRow();
 	});
 	$('#chain-slider').on('slide', function(){
 		calcTwo();
+		calcRow();
 		twoVsRow();
 	});
 	$('#row-enhance-slider').on('slide', function(){
+		calcTwo();
 		calcRow();
 		twoVsRow();
 	});
 	$('#row-slider').on('slide', function(){
+		calcTwo();
 		calcRow();
 		twoVsRow();
 	});
