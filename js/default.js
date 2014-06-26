@@ -185,7 +185,7 @@ $(function(){
 			document.getElementById('choice').innerHTML = "Row";
 		}
 		else if (row < two) { 
-			document.getElementById('choice').innerHTML = "Two Prong Attack";
+			document.getElementById('choice').innerHTML = "Two-Prong Attack";
 		}
 		else if (row == two) {
 			document.getElementById('choice').innerHTML = "Either. Both happen to the be the same.";
